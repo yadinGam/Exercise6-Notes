@@ -9,19 +9,23 @@ import android.widget.TextView;
  */
 
 class NoteViewHolder extends RecyclerView.ViewHolder {
+    public final View mView;
+    public final TextView titleTV;
+    public final TextView bodyTV;
 
-    private TextView titleTV;
-    private TextView bodyTV;
-
-    public NoteViewHolder(View itemView, TextView titleTV, TextView bodyTV) {
+    public NoteViewHolder(View itemView) {
         super(itemView);
-        this.titleTV = titleTV;
-        this.bodyTV = bodyTV;
+        this.mView = itemView;
+        this.titleTV = itemView.findViewById(R.id.rowTitleTextView);
+        this.bodyTV = itemView.findViewById(R.id.rowBodyTextView);
     }
 
-    public void bindViewHolder(Note note){
+    public void bindViewHolder(Note note,View.OnClickListener listener,int position){
         titleTV.setText(note.getTitle());
         bodyTV.setText(note.getBody());
+        mView.setOnClickListener(listener);
+        mView.setTag(position);
+
     }
 
 }

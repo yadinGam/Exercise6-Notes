@@ -5,10 +5,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity  implements NotesAdapter.NotesAdapterInteraction {
 
     private RecyclerView notesRecyclerView;
     private TextInputEditText titleIET;
@@ -41,22 +43,22 @@ public class MainActivity extends AppCompatActivity {
 
         notesRecyclerView = findViewById(R.id.notes_recycler_view);
         mLayoutManager = new LinearLayoutManager(this);
-        mNotesAdapter = new NotesAdapter(mNotes);
+        mNotesAdapter = new NotesAdapter(mNotes,this);
         notesRecyclerView.setLayoutManager(mLayoutManager);
         notesRecyclerView.setAdapter(mNotesAdapter);
     }
 
     private void generatNewNotesList() {
         mNotes = new ArrayList<Note>();
-        mNotes.add(new Note("yadin", "you are the best"));
-        mNotes.add(new Note("yadin", "you are the best"));
-        mNotes.add(new Note("yadin", "you are the best"));
-        mNotes.add(new Note("yadin", "you are the best"));
-        mNotes.add(new Note("yadin", "you are the best"));
-        mNotes.add(new Note("yadin", "you are the best"));
-        mNotes.add(new Note("yadin", "you are the best"));
-        mNotes.add(new Note("yadin", "you are the best"));
-        mNotes.add(new Note("yadin", "you are the best"));
-        mNotes.add(new Note("yadin", "you are the best"));
+
+        for(int i = 0 ; i< 10; i++){
+            mNotes.add(new Note("yadin", "you are the best",i));
+        }
+    }
+
+    @Override
+    public void onDeleteNote(Note note) {
+        Log.d("xxx", note.getTitle() );
+        Toast.makeText(this,"item clickd",Toast.LENGTH_LONG).show();
     }
 }
