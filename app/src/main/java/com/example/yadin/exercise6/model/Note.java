@@ -1,4 +1,4 @@
-package com.example.yadin.exercise6;
+package com.example.yadin.exercise6.model;
 
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;

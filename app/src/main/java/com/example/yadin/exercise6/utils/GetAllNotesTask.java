@@ -1,8 +1,11 @@
-package com.example.yadin.exercise6;
+package com.example.yadin.exercise6.utils;
 
 import android.os.AsyncTask;
 
+import com.example.yadin.exercise6.UI.MainActivity;
 import com.example.yadin.exercise6.database.NoteDao;
+import com.example.yadin.exercise6.model.IAsyncTaskEvents;
+import com.example.yadin.exercise6.model.Note;
 
 import java.util.List;
 

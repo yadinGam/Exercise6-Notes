@@ -1,12 +1,13 @@
-package com.example.yadin.exercise6;
+package com.example.yadin.exercise6.UI;
 
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
+
+
+import com.example.yadin.exercise6.R;
+import com.example.yadin.exercise6.model.Note;
 
 import java.util.ArrayList;
 import java.util.List;

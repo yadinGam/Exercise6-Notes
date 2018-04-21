@@ -1,4 +1,4 @@
-package com.example.yadin.exercise6;
+package com.example.yadin.exercise6.UI;
 
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputEditText;
@@ -12,6 +12,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.yadin.exercise6.utils.DeleteNoteTask;
+import com.example.yadin.exercise6.utils.GetAllNotesTask;
+import com.example.yadin.exercise6.model.IAsyncTaskEvents;
+import com.example.yadin.exercise6.utils.InsertNoteTask;
+import com.example.yadin.exercise6.model.Note;
+import com.example.yadin.exercise6.R;
 import com.example.yadin.exercise6.database.AppDatabase;
 
 import java.util.List;
@@ -71,18 +77,6 @@ public class MainActivity extends AppCompatActivity implements NotesAdapter.Note
         Toast.makeText(this, "item clicked", Toast.LENGTH_LONG).show();
 
         new DeleteNoteTask(this,db.noteDao()).execute(note);
-
-//        new AsyncTask<Note, Void, Void>() {
-//
-//            @Override
-//            protected Void doInBackground(Note... notes) {
-//                db.noteDao().delete(notes[0]);
-//                mNotesAdapter.notifyDataSetChanged();
-//                return null;
-//            }
-//        }.execute(note);
-
-
     }
 
 
@@ -110,16 +104,6 @@ public class MainActivity extends AppCompatActivity implements NotesAdapter.Note
 
         new InsertNoteTask(db.noteDao(),this).execute(note);
 
-//        new AsyncTask<Note,Void,Void>() {
-//
-//            @Override
-//            protected Void doInBackground(Note... notes) {
-//                db.noteDao().insert(notes[0]);
-//                return null;
-//            }
-//        }.execute(note);
-
-  //      getNoteList();
 
         titleIET.getText().clear();
         titleIET.requestFocus();
@@ -128,20 +112,6 @@ public class MainActivity extends AppCompatActivity implements NotesAdapter.Note
     }
 
     private void getNoteList() {
-
-//        new AsyncTask<Void,Void,List<Note>>() {
-//
-//            @Override
-//            protected List<Note> doInBackground(Void... voids) {
-//                return db.noteDao().getAll();
-//            }
-//
-//            @Override
-//            protected void onPostExecute(List<Note> notes) {
-//                List<Note> updatedList = notes;
-//                mNotesAdapter.updateList(updatedList);
-//            }
-//        }.execute();
         new GetAllNotesTask(this, db.noteDao()).execute();
     }
 

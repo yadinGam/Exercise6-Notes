@@ -1,4 +1,6 @@
-package com.example.yadin.exercise6;
+package com.example.yadin.exercise6.model;
+
+import com.example.yadin.exercise6.model.Note;
 
 import java.util.List;
 

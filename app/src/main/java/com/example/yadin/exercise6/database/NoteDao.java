@@ -6,7 +6,7 @@ import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
 
-import com.example.yadin.exercise6.Note;
+import com.example.yadin.exercise6.model.Note;
 
 import java.util.List;
 

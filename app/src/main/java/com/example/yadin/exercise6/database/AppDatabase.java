@@ -5,7 +5,7 @@ import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 
-import com.example.yadin.exercise6.Note;
+import com.example.yadin.exercise6.model.Note;
 
 /**
  * Created by yadin on 18/04/2018.
