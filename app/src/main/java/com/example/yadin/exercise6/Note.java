@@ -13,15 +13,10 @@ public class Note {
     private String title;
     private String body;
 
+
+
     @PrimaryKey(autoGenerate = true)
     private int id;
-
-    public Note(String title, String body, int id) {
-        this.title = title;
-        this.body = body;
-        this.id = id;
-    }
-
 
     public int getId() {
         return id;

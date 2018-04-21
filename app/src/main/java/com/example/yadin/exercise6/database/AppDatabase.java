@@ -18,7 +18,7 @@ public abstract class AppDatabase extends RoomDatabase{
     public abstract NoteDao noteDao();
 
     private static AppDatabase singleton;
-
+//
     public static AppDatabase getAppDatabase(Context context) {
 
         if (singleton == null) {
@@ -33,6 +33,20 @@ public abstract class AppDatabase extends RoomDatabase{
         }
         return singleton;
 
+    }
+
+//    public static AppDatabase getAppDatabase(Context context) {
+//        if (singleton == null) {
+//            singleton = Room.databaseBuilder(context.getApplicationContext(),
+//                    AppDatabase.class, DATABASE_NAME)
+//                    .allowMainThreadQueries()
+//                    .build();
+//        }
+//        return singleton;
+//    }
+
+    public static void destroyInstance() {
+        singleton = null;
     }
 
 
